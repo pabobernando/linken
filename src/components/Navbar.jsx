@@ -11,6 +11,7 @@ function Navbar() {
     console.log("kepencet123")
     setIsOpen(!isOpen)
   };
+  
 
   return (
     <nav className="bg-black">
