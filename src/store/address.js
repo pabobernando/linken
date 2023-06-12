@@ -20,6 +20,9 @@ const useAddress = create((set) => ({
         console.log("Last four characters of the address:", lastFourCharacters);
 
         set({ address: lastFourCharacters });
+
+        // POST address to localhost
+        useAddress.getState().postData();
       } catch (error) {
         console.log("Error connecting to Metamask:", error);
       }
@@ -29,12 +32,12 @@ const useAddress = create((set) => ({
   },
   postData: async () => {
     try {
-      const response = await fetch('http://localhost:3001', {
+      const response = await fetch('http://localhost:3009/accounts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ address: set.address }),
+        body: JSON.stringify({ address: useAddress.getState().address }),
       });
 
       if (response.ok) {
@@ -42,6 +45,27 @@ const useAddress = create((set) => ({
         console.log('Success:', responseData);
       } else {
         console.error('Error:', response.status);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  },
+  signTypedData: async (data) => {
+    try {
+      if (window.ethereum) {
+        const accounts = await window.ethereum.request({
+          method: 'eth_requestAccounts',
+        });
+        const address = accounts[0];
+
+        const signature = await window.ethereum.request({
+          method: 'eth_signTypedData_v4',
+          params: [address, JSON.stringify(data)],
+        });
+
+        console.log('Signature:', signature);
+      } else {
+        console.log('Metamask not detected.');
       }
     } catch (error) {
       console.error('Error:', error);
