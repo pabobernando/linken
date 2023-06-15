@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import Buffer from 'bops'
 
 const useAddress = create((set) => ({
   address: '',
@@ -6,40 +7,49 @@ const useAddress = create((set) => ({
   setAddress: (newAddress) => set({ address: newAddress }),
   setUser: (newUser) => set({ user: newUser }),
   connectMetamask: async () => {
+    const ethereum = window.ethereum
     console.log("Connecting to Metamask...");
 
-    if (window.ethereum) {
+    if (ethereum) {
       console.log("Metamask detected.");
 
       try {
-        const accounts = await window.ethereum.request({
+        const accounts = await ethereum.request({
           method: "eth_requestAccounts",
         });
-        console.log("Connected account:", accounts[0]);
+        console.log("konek iki:", accounts[0]);
 
         set({ address: accounts[0] });
 
-        // Extract last 4 characters of the address
+        // jupuk 4 character mburi
         const lastFourCharacters = accounts[0].slice(-4);
         console.log("Last four characters of the address:", lastFourCharacters);
 
-        // Set user as the last four characters of the address
         set({ user: lastFourCharacters });
 
-        // POST address and user to localhost
+        // POST address
+        const exampleMessage = 'iki isine opo rangerti gan wkwkk';
+        const msg = `0x${Buffer.from(exampleMessage, 'utf8').toString('hex')}`;
+        const from = accounts[0];
+        const sign = await ethereum.request({
+          method: 'personal_sign',
+          params: [msg, from],
+        });
+
+        console.log(sign, "iki sek dikirim")
+
         useAddress.getState().postData();
       } catch (error) {
-        console.log("Error connecting to Metamask:", error);
+        console.log("Error konek Metamask:", error);
       }
     } else {
-      console.log("Metamask not detected.");
+      console.log("Metamask ra detek.");
     }
   },
   postData: async () => {
     try {
       const { address, user } = useAddress.getState();
-  
-      // Check if user already exists
+        
       if (user === '') {
         console.log('User does not exist. Skipping POST request.');
         return;

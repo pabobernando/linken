@@ -8,7 +8,6 @@ function Navbar() {
   const { address, connectMetamask} = useAddress()
 
   function toggleMenu() {
-    console.log("kepencet123")
     setIsOpen(!isOpen)
   };
   
@@ -27,7 +26,6 @@ function Navbar() {
               <Link to="/"><a className="text-gray-300 hover:bg-cyan-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a></Link>
               <Link to="/berita"><a className="text-gray-300 hover:bg-cyan-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Berita</a></Link>
               <Link to="/diskusi"><a className="text-gray-300 hover:bg-cyan-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Diskusi</a></Link>
-              <Link to="/team"><a className="text-gray-300 hover:bg-cyan-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a></Link>
               <button onClick={connectMetamask} className="border border-cyan-500 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">
                 {address ? null : 'Login Metamask'}
                 <span>{address}</span>

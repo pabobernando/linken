@@ -1,19 +1,20 @@
 import React from 'react'
+import Logo from '../img/linken.png'
 import Uwong from '../img/pabober.jpg'
 
 function Team() {
 
 
   return (
-    <div>
-        <div className="p-8 bg-black shadow h-screen">
-    <p className="text-3xl font-bold text-center text-white ">
+    
+<div className="p-8 bg-black rounded-lg shadow dark:bg-gray-800 w-full">
+    <p className="text-3xl font-bold text-center text-white">
         Linken Team
     </p>
     <p className="mb-12 text-xl font-normal text-center text-gray-400">
         Contributor
     </p>
-    <div className="flex flex-col items-center md:flex-row justify-evenly">
+    <div className="flex flex-col items-center md:flex-row justify-between">
         <div className="p-4">
             <div className="mb-4 text-center opacity-90">
                 <a href="#" className="relative block">
@@ -21,25 +22,25 @@ function Team() {
                 </a>
             </div>
             <div className="text-center">
-                <p className="text-2xl text-gray-800 dark:text-white">
-                    Desolator
+                <p className="text-2xl text-cyan-500">
+                    Pabo Bernando
                 </p>
-                <p className="text-xl font-light text-gray-500 dark:text-gray-200">
+                <p className="text-xl font-light text-gray-400">
                     Developer
                 </p>
-                <p className="max-w-xs py-4 font-light text-gray-500 text-md dark:text-gray-400">
-                    Yogyakarta, 19 Mei 1996
+                <p className="max-w-xs py-4 font-light text-cyan-400">
+                    KDK Team
                 </p>
             </div>
             <div className="flex items-center justify-between pt-8 mx-auto text-gray-500 border-t border-gray-200 w-44">
                 <a href="#">
-                    <svg width="30" height="30" fill="currentColor" className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-blue-600" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="30" height="30" fill="currentColor" className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z">
                         </path>
                     </svg>
                 </a>
                 <a href="#">
-                    <svg width="30" height="30" fill="currentColor" className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-blue-400" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="30" height="30" fill="currentColor" className="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z">
                         </path>
                     </svg>
@@ -66,13 +67,13 @@ function Team() {
             </div>
             <div className="text-center">
                 <p className="text-2xl text-gray-800 dark:text-white">
-                    Desolator
+                    Hendri Sulistya
                 </p>
                 <p className="text-xl font-light text-gray-500 dark:text-gray-200">
                     Developer
                 </p>
                 <p className="max-w-xs py-4 font-light text-gray-500 text-md dark:text-gray-400">
-                    Yogyakarta, 19 Mei 1996
+                    KDK Team
                 </p>
             </div>
             <div className="flex items-center justify-between pt-8 mx-auto text-gray-500 border-t border-gray-200 w-44">
@@ -104,7 +105,7 @@ function Team() {
         </div>
     </div>
 </div>
-    </div>
+
   )
 }
 

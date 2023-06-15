@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css';
 import Home from './pages/Home';
-import Team from './pages/Team';
 import Materi from './pages/Materi';
 import Navbar from './components/Navbar';
 import Berita from './pages/Berita';
@@ -21,7 +20,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home  />} />
         <Route path='/materi' element={<Materi  />} />
-        <Route path='/team' element={<Team />} />
         <Route path='/berita' element={<Berita />} />
         <Route path='/diskusi' element={<Diskusi/>} />
         <Route path='/berita1' element={<Berita1 />} />
