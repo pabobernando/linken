@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import Buffer from 'bops'
 
 const useAddress = create((set) => ({
   address: '',
@@ -7,7 +6,7 @@ const useAddress = create((set) => ({
   setAddress: (newAddress) => set({ address: newAddress }),
   setUser: (newUser) => set({ user: newUser }),
   connectMetamask: async () => {
-    const ethereum = window.ethereum
+    const ethereum = window.ethereum;
     console.log("Connecting to Metamask...");
 
     if (ethereum) {
@@ -17,39 +16,38 @@ const useAddress = create((set) => ({
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
         });
-        console.log("konek iki:", accounts[0]);
+        console.log("Connected address:", accounts[0]);
 
         set({ address: accounts[0] });
 
-        // jupuk 4 character mburi
+        // Get the last four characters of the address
         const lastFourCharacters = accounts[0].slice(-4);
-        console.log("Last four characters of the address:", lastFourCharacters);
+        console.log("Last four characters:", lastFourCharacters);
 
         set({ user: lastFourCharacters });
 
         // POST address
-        const exampleMessage = 'iki isine opo rangerti gan wkwkk';
-        const msg = `0x${Buffer.from(exampleMessage, 'utf8').toString('hex')}`;
+        const exampleMessage = 'Kewr Foundation';
         const from = accounts[0];
         const sign = await ethereum.request({
           method: 'personal_sign',
-          params: [msg, from],
+          params: [exampleMessage, from],
         });
 
-        console.log(sign, "iki sek dikirim")
+        console.log(sign, "Signature sent");
 
         useAddress.getState().postData();
       } catch (error) {
-        console.log("Error konek Metamask:", error);
+        console.log("Error connecting to Metamask:", error);
       }
     } else {
-      console.log("Metamask ra detek.");
+      console.log("Metamask not detected.");
     }
   },
   postData: async () => {
     try {
       const { address, user } = useAddress.getState();
-        
+
       if (user === '') {
         console.log('User does not exist. Skipping POST request.');
         return;

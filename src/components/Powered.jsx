@@ -17,7 +17,7 @@ function Powered() {
     <img src={Kewr} className='w-1/2 h-auto' />
   </div>
   <div className='text-white flex justify-start items-center my-4'>
-    <img src={Yosemite} className='w-1/2 h-auto' />
+    <img src={Desolator} className='w-1/2 h-auto' />
   </div>
 </div>
     </>
