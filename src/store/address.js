@@ -1,13 +1,14 @@
 import { create } from 'zustand';
-import Buffer from 'bops'
 
 const useAddress = create((set) => ({
   address: '',
   user: '',
+  signedData: '',
   setAddress: (newAddress) => set({ address: newAddress }),
   setUser: (newUser) => set({ user: newUser }),
+  setSignedData: (newSignedData) => set({ signedData: newSignedData }),
   connectMetamask: async () => {
-    const ethereum = window.ethereum
+    const ethereum = window.ethereum;
     console.log("Connecting to Metamask...");
 
     if (ethereum) {
@@ -17,79 +18,61 @@ const useAddress = create((set) => ({
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
         });
-        console.log("konek iki:", accounts[0]);
+        console.log("Connected address:", accounts[0]);
 
         set({ address: accounts[0] });
 
-        // jupuk 4 character mburi
+        // Get the last four characters of the address
         const lastFourCharacters = accounts[0].slice(-4);
         console.log("Last four characters of the address:", lastFourCharacters);
 
         set({ user: lastFourCharacters });
 
-        // POST address
-        const exampleMessage = 'iki isine opo rangerti gan wkwkk';
-        const msg = `0x${Buffer.from(exampleMessage, 'utf8').toString('hex')}`;
-        const from = accounts[0];
+        // Prepare the message to be signed
+        const message = 'Approve to Login in this site using Metamask Wallet?';
+
+        // Sign the message
         const sign = await ethereum.request({
           method: 'personal_sign',
-          params: [msg, from],
+          params: [message, accounts[0]],
         });
 
-        console.log(sign, "iki sek dikirim")
+        console.log(sign, "Signature sent");
 
+        // Update the signedData state
+        set({ signedData: sign });
+
+        // Call the postData function
         useAddress.getState().postData();
       } catch (error) {
-        console.log("Error konek Metamask:", error);
+        console.log("Error connecting to Metamask:", error);
       }
     } else {
-      console.log("Metamask ra detek.");
+      console.log("Metamask not detected.");
     }
   },
   postData: async () => {
     try {
-      const { address, user } = useAddress.getState();
-        
+      const { address, user, signedData } = useAddress.getState();
+
       if (user === '') {
         console.log('User does not exist. Skipping POST request.');
         return;
       }
-  
+
       const response = await fetch('http://localhost:3009/accounts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ address, user }),
+        body: JSON.stringify({ address, user, signedData }), // Include signedData in the request body
       });
-  
+
       if (response.ok) {
         const responseData = await response.json();
         console.log('Success:', responseData);
       } else {
         console.error('Error:', response.status);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  },
-  
-  signTypedData: async (data) => {
-    try {
-      if (window.ethereum) {
-        const accounts = await window.ethereum.request({
-          method: 'eth_requestAccounts',
-        });
-        const address = accounts[0];
-
-        const signature = await window.ethereum.request({
-          method: 'eth_signTypedData_v4',
-          params: [address, JSON.stringify(data)],
-        });
-
-        console.log('Signature:', signature);
-      } else {
-        console.log('Metamask not detected.');
       }
     } catch (error) {
       console.error('Error:', error);
