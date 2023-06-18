@@ -1,5 +1,7 @@
 import React from 'react'
-import Blockchain from '../img/blockchain1.jpg'
+import Blockchain from '../img/blockchain.jpeg'
+import Kriptografi2 from '../img/kriptografi2.jpg'
+import Kriptografi1 from '../img/kriptografi1.jpg'
 
 function Kriptografi() {
   return (
@@ -73,11 +75,11 @@ function Kriptografi() {
                 <div className="relative space-y-4">
                     <div className="flex items-end justify-center space-x-4 lg:justify-start">
                         <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Blockchain} alt="1"/>
-                        <img className="w-40 rounded-lg shadow-lg md:w-64" width="260" src={Blockchain} alt="2"/>
+                        <img className="w-40 rounded-lg shadow-lg md:w-64" width="260" src={Kriptografi2} alt="2"/>
                     </div>
                     <div className="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
                         <img className="w-24 rounded-lg shadow-lg md:w-40" width="170" src={Blockchain} alt="3"/>
-                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Blockchain} alt="4"/>
+                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Kriptografi1} alt="4"/>
                     </div>
                 </div>
             </div>

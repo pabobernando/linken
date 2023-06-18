@@ -28,17 +28,6 @@ const useAddress = create((set) => ({
 
         set({ user: lastFourCharacters });
 
-<<<<<<< HEAD
-        // POST address
-        const exampleMessage = 'Kewr Foundation';
-        const from = accounts[0];
-        const sign = await ethereum.request({
-          method: 'personal_sign',
-          params: [exampleMessage, from],
-        });
-
-        console.log(sign, "Signature sent");
-=======
         // Prepare the message to be signed
         const message = 'Approve to Login in this site using Metamask Wallet?';
 
@@ -52,7 +41,6 @@ const useAddress = create((set) => ({
 
         // Update the signedData state
         set({ signedData: sign });
->>>>>>> 992ae2d1c760a97b82934a4bec50e0da58dd1815
 
         // Call the postData function
         useAddress.getState().postData();
@@ -65,11 +53,8 @@ const useAddress = create((set) => ({
   },
   postData: async () => {
     try {
-<<<<<<< HEAD
-      const { address, user } = useAddress.getState();
-=======
+
       const { address, user, signedData } = useAddress.getState();
->>>>>>> 992ae2d1c760a97b82934a4bec50e0da58dd1815
 
       if (user === '') {
         console.log('User does not exist. Skipping POST request.');

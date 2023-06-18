@@ -1,5 +1,5 @@
 import React from 'react'
-import Blockchain from '../img/blockchain1.jpg'
+import Blockchain from '../img/ilustrasi3.png'
 
 function Konsensus() {
   return (
