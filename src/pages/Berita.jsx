@@ -4,6 +4,7 @@ import Uwong from '../img/pabober.jpg'
 import Binance from '../img/binance.jpeg'
 import { Link } from 'react-router-dom'
 import Blockchain from '../img/blockchain1.jpg'
+import FormUpload from '../components/FormUpload'
 
 function Berita() {
 
@@ -16,7 +17,6 @@ function Berita() {
 
   return (
     <div>
-
 <div className="w-full p-12 bg-black">
     <div className="flex items-end justify-between mb-12 header">
         <div className="title">
@@ -28,6 +28,7 @@ function Berita() {
             </p>
         </div>
         </div>
+        <FormUpload />
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
         <div
       className={`m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80 ${isClicked ? 'w-full' : ''}`}
