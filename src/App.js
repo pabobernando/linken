@@ -11,7 +11,8 @@ import Berita3 from './pages/berita/Berita3';
 import Berita4 from './pages/berita/Berita4';
 import Berita5 from './pages/berita/Berita5';
 import Berita6 from './pages/berita/Berita6';
-
+import NewsUpload from '../src/pages/NewsUpload'
+import Dokumentasi from './pages/Dokumentasi';
 
 function App() {
   return (
@@ -22,12 +23,14 @@ function App() {
         <Route path='/materi' element={<Materi  />} />
         <Route path='/berita' element={<Berita />} />
         <Route path='/diskusi' element={<Diskusi/>} />
+        <Route path='/addBerita' element={<NewsUpload />} />
         <Route path='/berita1' element={<Berita1 />} />
         <Route path='/berita2' element={<Berita2 />} />
         <Route path='/berita3' element={<Berita3 />} />
         <Route path='/berita4' element={<Berita4 />} />
         <Route path='/berita5' element={<Berita5 />} />
         <Route path='/berita6' element={<Berita6 />} />
+        <Route path='/dokumentasi' element={<Dokumentasi />} />
       </Routes>
     </Router>
   );

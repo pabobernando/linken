@@ -26,7 +26,7 @@ function FormUpload() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black">
       <div className="w-full max-w-md p-6 bg-black border border-cyan-500 rounded-md shadow-md">
-        <h2 className="mb-6 text-2xl font-bold text-white">Upload Berita </h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">Upload Berita</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label htmlFor="photo" className="block mb-2 text-lg font-medium text-white">
