@@ -11,23 +11,37 @@ function Diskusi() {
     setNewComment(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (newComment !== '' && address !== '') {
-      if (editIndex !== null) {
-        const updatedComments = [...comments];
-        updatedComments[editIndex] = {
-          username: address,
-          comment: newComment,
-        };
-        setComments(updatedComments);
-        setEditIndex(null);
+  const handleSubmit = async (event) => {
+  event.preventDefault();
+  if (newComment !== '' && address !== '') {
+    if (editIndex !== null) {
+      const updatedComments = [...comments];
+      updatedComments[editIndex] = {
+        address: address,
+        comment: newComment,
+      };
+      setComments(updatedComments);
+      setEditIndex(null);
+    } else {
+      const newCommentFix = { address: address, comment: newComment };
+      const response = await fetch('http://localhost:3009/discussions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newCommentFix),
+      });
+
+      if (response.ok) {
+        setComments([...comments, newCommentFix]);
+        setNewComment('');
       } else {
-        setComments([...comments, { username: address, comment: newComment }]);
+        console.error('Failed to post comment:', response.status);
       }
-      setNewComment('');
     }
-  };
+  }
+};
+
 
   const handleEdit = (index) => {
     setEditIndex(index);
@@ -48,7 +62,7 @@ function Diskusi() {
           {comments.map((comment, index) => (
             <li key={index} className="mb-2 flex justify-between items-center">
               <div>
-  <span className="font-bold text-cyan-500">{comment.username} :</span>
+  <span className="font-bold text-cyan-500">{comment.address} :</span>
   <span className='text-pink-500'> {comment.comment}</span>
 </div>
 
