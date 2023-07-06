@@ -15,7 +15,7 @@ function StrukturBlockchain() {
                     Struktur dasar dari blockchain terdiri dari beberapa komponen utama yang bekerja bersama untuk menciptakan sistem yang terdesentralisasi dan aman. Berikut adalah komponen-komponen utama dari struktur blockchain:
                     </p>
                     <div className="w-full md:w-1/3">
-                        <button type="button" className="py-2 px-4  bg-black border border-pink-500 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                        <button type="button" className="py-2 px-4  bg-black border border-cyan-500 hover:bg-cyan-700 focus:ring-cyan-500 focus:ring-offset-cyan-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
                             See more
                         </button>
                     </div>
@@ -25,7 +25,7 @@ function StrukturBlockchain() {
                 <ul className="space-y-12">
                     <li className="flex -mx-4">
                         <div className="px-4">
-                            <span className="flex items-center justify-center w-16 h-16 mx-auto text-2xl font-bold text-white rounded-full font-heading bg-black border border-pink-500">
+                            <span className="flex items-center justify-center w-16 h-16 mx-auto text-2xl font-bold text-white rounded-full font-heading bg-black border border-cyan-500">
                                 1
                             </span>
                         </div>
@@ -40,7 +40,7 @@ function StrukturBlockchain() {
                     </li>
                     <li className="flex -mx-4">
                         <div className="px-4">
-                            <span className="flex items-center justify-center w-16 h-16 mx-auto text-2xl font-bold text-white rounded-full font-heading bg-pink-500">
+                            <span className="flex items-center justify-center w-16 h-16 mx-auto text-2xl font-bold text-white rounded-full font-heading border border-cyan-500">
                                 2
                             </span>
                         </div>
@@ -55,7 +55,7 @@ function StrukturBlockchain() {
                     </li>
                     <li className="flex -mx-4">
                         <div className="px-4">
-                            <span className="flex items-center justify-center w-16 h-16 mx-auto text-2xl font-bold text-white rounded-full font-heading bg-pink-500">
+                            <span className="flex items-center justify-center w-16 h-16 mx-auto text-2xl font-bold text-white rounded-full font-heading border border-cyan-500">
                                 3
                             </span>
                         </div>

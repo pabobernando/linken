@@ -1,111 +1,99 @@
-import React, { useState } from 'react';
-import useAddress from '../store/address';
+import React, { useEffect, useState } from "react";
+import Web3 from "web3";
 
-function Diskusi() {
+const web3 = new Web3(window.ethereum);
+
+const contractAddress = "0x78fCd02DE4dc49505EB5f1a0D9a9938Ab5BEc5bd"; 
+const contractABI = [{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"comments","outputs":[{"internalType":"address","name":"author","type":"address"},{"internalType":"string","name":"content","type":"string"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_content","type":"string"}],"name":"createComment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"}],"name":"deleteComment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"}],"name":"getComment","outputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"string","name":"","type":"string"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getCommentCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"},{"internalType":"string","name":"_newContent","type":"string"}],"name":"updateComment","outputs":[],"stateMutability":"nonpayable","type":"function"}]; // Ganti dengan ABI kontrak Anda
+
+const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
+
+const Diskusi = () => {
   const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState('');
-  const [editIndex, setEditIndex] = useState(null);
-  const address = useAddress((state) => state.address);
 
-  const handleChange = (event) => {
-    setNewComment(event.target.value);
-  };
+  useEffect(() => {
+    loadComments();
+  }, []);
 
-  const handleSubmit = async (event) => {
-  event.preventDefault();
-  if (newComment !== '' && address !== '') {
-    if (editIndex !== null) {
-      const updatedComments = [...comments];
-      updatedComments[editIndex] = {
-        address: address,
-        comment: newComment,
-      };
-      setComments(updatedComments);
-      setEditIndex(null);
-    } else {
-      const newCommentFix = { address: address, comment: newComment };
-      const response = await fetch('http://localhost:3009/discussions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newCommentFix),
-      });
+  const loadComments = async () => {
+    try {
+      const commentCount = await contractInstance.methods.getCommentCount().call();
+      const fetchedComments = [];
 
-      if (response.ok) {
-        setComments([...comments, newCommentFix]);
-        setNewComment('');
-      } else {
-        console.error('Failed to post comment:', response.status);
+      for (let i = 0; i < commentCount; i++) {
+        const comment = await contractInstance.methods.getComment(i).call();
+        fetchedComments.push(comment);
       }
+
+      setComments(fetchedComments);
+    } catch (error) {
+      console.error(error);
     }
-  }
-};
-
-
-  const handleEdit = (index) => {
-    setEditIndex(index);
-    setNewComment(comments[index].comment);
   };
 
-  const handleDelete = (index) => {
-    const updatedComments = [...comments];
-    updatedComments.splice(index, 1);
-    setComments(updatedComments);
+  const createComment = async (event) => {
+    event.preventDefault();
+    const content = event.target.content.value;
+    try {
+      await contractInstance.methods.createComment(content).send({ from: web3.currentProvider.selectedAddress });
+      loadComments();
+      event.target.reset();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const editComment = async (index, newContent) => {
+    try {
+      await contractInstance.methods.updateComment(index, newContent).send({ from: web3.currentProvider.selectedAddress });
+      loadComments();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteComment = async (index) => {
+    try {
+      await contractInstance.methods.deleteComment(index).send({ from: web3.currentProvider.selectedAddress });
+      loadComments();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div className="bg-black h-screen">
-      <div className="container mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-4 text-white">Diskusi</h2>
-        <ul className="bg-gray-600 border border-cyan-500 p-4 rounded-lg mb-4">
-          {comments.map((comment, index) => (
-            <li key={index} className="mb-2 flex justify-between items-center">
-              <div>
-  <span className="font-bold text-cyan-500">{comment.address} :</span>
-  <span className='text-pink-500'> {comment.comment}</span>
-</div>
-
-              <div>
-                <button
-                  onClick={() => handleEdit(index)}
-                  className="ml-2 text-blue-500 hover:text-blue-600"
-                >
-                  <svg width="20" height="20" fill="currentColor" className="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z" />
-                  </svg>
-                </button>
-                <button
-                  onClick={() => handleDelete(index)}
-                  className="ml-2 text-red-500 hover:text-red-600"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="w-6 h-6" viewBox="0 0 24 24">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 18v-6h4v6h5v-8h3L12 3 2 10h3v8h5zm8-16H6a1 1 0 0 0-1 1v1h16V3a1 1 0 0 0-1-1zm0 4H4v8h16V6zm-2 6h-3V9h3v3z" />
-                  </svg>
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <form onSubmit={handleSubmit} className="flex flex-wrap mb-4">
-          <input
-            type="text"
-            value={newComment}
-            onChange={handleChange}
-            className="w-full sm:w-auto px-4 py-2 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Tambahkan komentar"
-          />
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-r-lg focus:outline-none hover:bg-blue-600"
-          >
-            {editIndex !== null ? 'Update Komentar' : 'Tambahkan Komentar'}
-          </button>
-        </form>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Discussion Contract</h1>
+      <div>
+        {comments.map((comment, index) => (
+          <div key={index} className="comment border border-gray-300 p-4 rounded-md my-2">
+            <p className="font-bold">Author: {comment[0]}</p>
+            <p>Comment: {comment[1]}</p>
+            <div className="flex mt-2">
+              <input type="text" className="border border-gray-300 p-2 rounded-md mr-2" />
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
+                onClick={() => editComment(index, comment[1])}
+              >
+                Edit
+              </button>
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded-md"
+                onClick={() => deleteComment(index)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
+      <form onSubmit={createComment} className="my-4">
+        <label htmlFor="content" className="mr-2">Comment:</label>
+        <input type="text" id="content" required className="border border-gray-300 p-2 rounded-md" />
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md ml-2">Submit</button>
+      </form>
     </div>
   );
-}
+};
 
 export default Diskusi;

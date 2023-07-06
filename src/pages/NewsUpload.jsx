@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import Uwong from '../img/pabober.jpg';
+import useAddress from '../store/address';
 
 function FormUpload() {
   const [file, setFile] = useState(null);
   const [text, setText] = useState('');
+  const [submittedNews, setSubmittedNews] = useState(null);
+  const user = useAddress((state) => state.user);
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -18,10 +22,27 @@ function FormUpload() {
     // Perform upload logic here
     console.log('File:', file);
     console.log('Text:', text);
+
+    const currentDateTime = new Date();
+    const year = currentDateTime.getFullYear();
+    const month = (currentDateTime.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDateTime.getDate().toString().padStart(2, '0');
+    const hour = currentDateTime.getHours().toString().padStart(2, '0');
+    const minute = currentDateTime.getMinutes().toString().padStart(2, '0');
+    const timestamp = `${day}-${month}-${year} ${hour}:${minute}`;
+
+    // Set submitted news with timestamp
+    setSubmittedNews({
+      file,
+      text,
+      timestamp
+    });
+
     // Reset the form
     setFile(null);
     setText('');
   };
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black">
@@ -58,6 +79,31 @@ function FormUpload() {
             Submit
           </button>
         </form>
+
+        {submittedNews && (
+  <div className="mt-6 bg-black border border-cyan-500 p-6 rounded-md shadow-md">
+    <h3 className="text-xl font-bold mb-2">Submitted News:</h3>
+    <div className="mb-2">
+      {submittedNews.file && (
+        <img src={URL.createObjectURL(submittedNews.file)} alt="Submitted Image" className="max-w-full h-auto" />
+      )}
+    </div>
+    <p className="font-bold text-yellow-500 text-md">
+      {submittedNews.text}
+    </p>
+    <p className="text-gray-400 dark:text-gray-300"></p>
+    <div className="flex items-center mt-4">
+      <a className="relative block">
+        <img alt="profil" src={Uwong} className="mx-auto object-cover rounded-full h-10 w-10" />
+      </a>
+      <div className="flex flex-col justify-between ml-4 text-sm">
+        <p className="text-black">{user}</p>
+        <p className="text-gray-400 dark:text-gray-300">{submittedNews.timestamp}</p>
+      </div>
+    </div>
+  </div>
+)}
+
       </div>
     </div>
   );

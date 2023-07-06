@@ -8,7 +8,7 @@ function SmartContract() {
     <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
         
         <div className="lg:col-start-1 md:pr-20">
-            <h4 className="text-2xl font-extrabold leading-8 tracking-tight text-white dark:text-white sm:leading-9">
+            <h4 className="text-2xl font-extrabold leading-8 tracking-tight text-pink-500 sm:leading-9">
                 SmartContract
             </h4>
             <p className="mt-4 text-lg leading-6 text-gray-400 dark:text-gray-300">

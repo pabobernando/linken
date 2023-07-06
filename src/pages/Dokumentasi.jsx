@@ -4,7 +4,7 @@ function Dokumentasi() {
   return (
     <div className="bg-black py-10 px-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-white">Dokumentasi Linken: Transformasi Digital Era Blockchain</h1>
+        <h1 className="text-3xl font-bold mb-6 text-white">Transformasi Digital Era Blockchain</h1>
         
         <section className="bg-black border border-cyan-400 rounded-md shadow-md p-6 mb-6">
           <h2 className="text-2xl font-bold mb-4 text-white">Visi Linken</h2>

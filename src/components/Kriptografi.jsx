@@ -2,6 +2,8 @@ import React from 'react'
 import Blockchain from '../img/blockchain.jpeg'
 import Kriptografi2 from '../img/kriptografi2.jpg'
 import Kriptografi1 from '../img/kriptografi1.jpg'
+import Kriptografi3 from '../img/robot.png'
+import Kriptografi4 from '../img/robot2.png'
 
 function Kriptografi() {
   return (
@@ -19,7 +21,7 @@ function Kriptografi() {
                 <ul className="gap-6 mt-8 md:grid md:grid-cols-2">
                     <li className="mt-6 lg:mt-0">
                         <div className="flex">
-                            <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                            <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-white bg-gradient-to-br from-cyan-400 to-purple-500 rounded-full">
                                 <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
                                     </path>
@@ -32,7 +34,7 @@ function Kriptografi() {
                     </li>
                     <li className="mt-6 lg:mt-0">
                         <div className="flex">
-                            <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                            <span className="flex items-center justify-center flex-shrink-0 w-6 h-6 bg-gradient-to-br text-white from-cyan-400 to-pink-400 rounded-full">
                                 <svg className="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd">
                                     </path>
@@ -74,7 +76,7 @@ function Kriptografi() {
             <div className="relative mt-10 lg:-mx-4 relative-20 lg:mt-0 lg:col-start-1">
                 <div className="relative space-y-4">
                     <div className="flex items-end justify-center space-x-4 lg:justify-start">
-                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Blockchain} alt="1"/>
+                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Kriptografi3} alt="1"/>
                         <img className="w-40 rounded-lg shadow-lg md:w-64" width="260" src={Kriptografi2} alt="2"/>
                     </div>
                     <div className="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
