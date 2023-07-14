@@ -12,7 +12,6 @@ const Diskusi = () => {
   const [comments, setComments] = useState([]);
   const [newContent, setNewContent] = useState("");
   const [editIndex, setEditIndex] = useState(-1);
-  const [currentAddress, setCurrentAddress] = useState("");
 
   useEffect(() => {
     loadComments();
