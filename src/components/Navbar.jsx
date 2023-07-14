@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useAddress from '../store/address'
 
 function Navbar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const { address, connectMetamask} = useAddress()
+  const { address, connectMetamask } = useAddress();
+
+  useEffect(() => {
+    // Cek apakah pengguna sudah login saat komponen dimuat
+    if (!address) {
+      navigate('/'); // Jika belum login, arahkan ke halaman beranda atau halaman login
+    }
+  }, [address, navigate]);
 
   function toggleMenu() {
-    setIsOpen(!isOpen)
-  };
+    setIsOpen(!isOpen);
+  }
+
   
 
   return (

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import Kewr from '../img/kewr.png'
 import Uwong from '../img/pabober.jpg'
 import Binance from '../img/binance.jpeg'
@@ -8,6 +8,21 @@ import useAddress from '../store/address';
 function Berita() {
   const user = useAddress((state) => state.user);
     const [isClicked, setIsClicked] = useState(false);
+    const [imageURL, setImageURL] = useState('');
+
+    useEffect(() => {
+      const getImage = async () => {
+        try {
+          const response = await fetch('https://ipfs.io/ipfs/QmPczREDrQrk7aWsibzQocrVpFwx7Wppvd1x6N9Pogmg7N?filename=ilustrasi.png');
+          const data = await response.blob();
+          const url = URL.createObjectURL(data);
+          setImageURL(url);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getImage();
+    }, []);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
@@ -85,7 +100,7 @@ function Berita() {
     >
       <Link to="/berita1">
       <a className="block w-full h-full">
-        <img alt="blog photo" src={Binance} className="object-cover w-full max-h-40" />
+      {imageURL && <img alt="blog photo" src={imageURL} className="object-cover w-full max-h-40" />}
         <div className="w-full p-4 bg-black border border-yellow-500">
           <p className="font-bold text-yellow-500 text-md">Binance Menghadapi Penyelidikan Terkait Sigma Chain yang Berbasis di Swiss dalam Laporan Terbaru SEC</p>
           <p className="font-light text-gray-400 dark:text-gray-300 text-md">

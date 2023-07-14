@@ -4,14 +4,15 @@ import useAddress from "../store/address";
 
 
 const web3 = new Web3(window.ethereum);
-const contractAddress = "0x2286e7Cc19517931EA1c3C5C5ff06c27F8a06277"; 
+const contractAddress = "0x2eE738c6B1dE7dACC0d9E138D4f475E66410E791"; 
 const contractABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"comments","outputs":[{"internalType":"address","name":"author","type":"address"},{"internalType":"string","name":"content","type":"string"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_content","type":"string"}],"name":"createComment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"}],"name":"deleteComment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"}],"name":"getComment","outputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"string","name":"","type":"string"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getCommentCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"},{"internalType":"string","name":"_newContent","type":"string"}],"name":"updateComment","outputs":[],"stateMutability":"nonpayable","type":"function"}]; // Ganti dengan ABI kontrak Anda
-
 const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
 
 const Diskusi = () => {
   const [comments, setComments] = useState([]);
-const [newContent, setNewContent] = useState("");
+  const [newContent, setNewContent] = useState("");
+  const [editIndex, setEditIndex] = useState(-1);
+  const [currentAddress, setCurrentAddress] = useState("");
 
   useEffect(() => {
     loadComments();
@@ -26,15 +27,19 @@ const [newContent, setNewContent] = useState("");
         const comment = await contractInstance.methods.getComment(i).call();
         fetchedComments.push(comment);
       }
-
       setComments(fetchedComments);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleInputChange = (event) => {
-    setNewContent(event.target.value);
+  const handleInputChange = (event, index) => {
+    const value = event.target.value;
+    setNewContent((prevContents) => {
+      const updatedContents = [...prevContents];
+      updatedContents[index] = value;
+      return updatedContents;
+    });
   };
 
   const createComment = async (event) => {
@@ -72,10 +77,11 @@ const [newContent, setNewContent] = useState("");
       console.error(error);
     }
   };
-  
-  
-  
 
+  const handleEditClick = (index) => {
+    setEditIndex(index);
+  };
+  
   const deleteComment = async (index) => {
     try {
       await contractInstance.methods.deleteComment(index).send({ from: web3.currentProvider.selectedAddress });
@@ -86,41 +92,78 @@ const [newContent, setNewContent] = useState("");
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Discussion Contract</h1>
-      <div>
+    <div className="h-screen flex flex-col bg-black">
+    <div className="flex-grow overflow-y-auto">
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Discussion Contract</h1>
         {comments.map((comment, index) => (
-          <div key={index} className="comment border border-gray-300 p-4 rounded-md my-2">
+          <div key={index} className="bg-black border border-cyan-500 p-4 rounded-md mb-4 text-white">
             <p className="font-bold">Author: {comment[0]}</p>
-            <p>Comment: {comment[1]}</p>
-            <div className="flex mt-2">
-              <input 
-                type="text" 
-                className="border border-gray-300 p-2 rounded-md mr-2" 
-                value={newContent}
-                onChange={handleInputChange}/>
-              <button
-                className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
-                onClick={() => editComment(index, newContent)}
-              >
-                Edit
-              </button>
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded-md"
-                onClick={() => deleteComment(index)}
-              >
-                Delete
-              </button>
+            {editIndex === index ? (
+              <input
+                type="text"
+                className="w-full text-black border border-gray-300 p-2 rounded-md mb-2"
+                value={newContent[index] || ""}
+                onChange={(event) => handleInputChange(event, index)}
+              />
+            ) : (
+              <p>Comment: {comment[1]}</p>
+            )}
+            <div className="mt-2">
+              {editIndex !== index ? (
+                <div className="flex justify-end">
+                  <button
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
+                    onClick={() => handleEditClick(index)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="bg-red-500 text-white px-4 py-2 rounded-md"
+                    onClick={() => deleteComment(index)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ) : (
+                <div className="flex justify-end">
+                  <button
+                    className="bg-green-500 text-white px-4 py-2 rounded-md mr-2"
+                    onClick={() => editComment(index, newContent[index])}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className="bg-gray-500 text-white px-4 py-2 rounded-md"
+                    onClick={() => setEditIndex(-1)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         ))}
       </div>
-      <form onSubmit={createComment} className="my-4">
-        <label htmlFor="content" className="mr-2">Comment:</label>
-        <input type="text" id="content" required className="border border-gray-300 p-2 rounded-md" />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md ml-2">Submit</button>
-      </form>
     </div>
+    <form onSubmit={createComment} className="p-4">
+      <div className="flex">
+        <input
+          type="text"
+          id="content"
+          required
+          className="border border-gray-300 p-2 rounded-md flex-grow mr-2"
+          placeholder="Type your message..."
+        />
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+        >
+          Send
+        </button>
+      </div>
+    </form>
+  </div>
   );
 };
 
