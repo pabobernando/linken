@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '../img/linken.png'
-import Uwong from '../img/pabober.jpg'
+import Hendri from '../img/hendri.jpeg'
+import Pabo from '../img/pabober.jpg'
 
 function Team() {
 
@@ -18,7 +18,7 @@ function Team() {
         <div className="p-4">
             <div className="mb-4 text-center opacity-90">
                 <a href="#" className="relative block">
-                    <img alt="profil" src={Uwong} className="mx-auto object-cover rounded-full h-40 w-40 "/>
+                    <img alt="profil" src={Pabo} className="mx-auto object-cover rounded-full h-40 w-40 "/>
                 </a>
             </div>
             <div className="text-center">
@@ -62,7 +62,7 @@ function Team() {
         <div className="p-4">
             <div className="mb-4 text-center opacity-90">
                 <a href="#" className="relative block">
-                    <img alt="profil" src={Uwong} className="mx-auto object-cover rounded-full h-40 w-40 "/>
+                    <img alt="profil" src={Hendri} className="mx-auto object-cover rounded-full h-40 w-40 "/>
                 </a>
             </div>
             <div className="text-center">
