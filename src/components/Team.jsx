@@ -69,7 +69,7 @@ function Team() {
                 <p className="text-2xl text-cyan-500">
                     Hendri Sulistya
                 </p>
-                <p className="text-xl font-light text-gray-500 dark:text-gray-200">
+                <p className="text-xl font-light text-gray-400 dark:text-gray-200">
                     Developer
                 </p>
                 <p className="max-w-xs py-4 font-light text-cyan-400">
