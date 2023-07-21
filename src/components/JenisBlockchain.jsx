@@ -3,7 +3,7 @@ import React from 'react'
 function JenisBlockchain() {
   return (
     <>
-    <div className="container p-6 px-6 mx-auto bg-black dark:bg-gray-800">
+    <div className="container p-6 px-6 mx-auto bg-black">
     <div className="mb-16 text-center">
         <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-white dark:text-white sm:text-4xl">
             Jenis-jenis BLOCKCHAIN

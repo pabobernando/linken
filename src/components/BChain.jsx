@@ -7,7 +7,7 @@ function BChain() {
     <div className='grid grid-cols-1  text-white mt-10 pr-20 pl-20 w-full'>
   <h1 className='text-3xl border-b-2  border-cyan-400 text-center'>Edukasi </h1>
 </div>
-<div className="relative p-4 bg-black dark:bg-gray-800">
+<div className="relative p-4 bg-black">
     <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
         <div className="lg:col-start-2 md:pl-20">
             <h4 className="text-2xl text-white font-extrabold leading-8 tracking-tight  dark:text-white sm:leading-9">

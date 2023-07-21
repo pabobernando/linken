@@ -7,7 +7,7 @@ function Team() {
 
   return (
     
-<div className="p-8 bg-black rounded-lg shadow dark:bg-gray-800 w-full">
+<div className="p-8 bg-black rounded-lg shadow  w-full">
     <p className="text-3xl font-bold text-center text-white">
         Linken Team
     </p>

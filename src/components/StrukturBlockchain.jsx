@@ -4,7 +4,7 @@ function StrukturBlockchain() {
   return (
     <>
 <section>
-    <div className="container p-4 mx-auto bg-black max-w-7xl sm:p-6 lg:p-8 dark:bg-gray-800">
+    <div className="container p-4 mx-auto bg-black max-w-7xl sm:p-6 lg:p-8">
         <div className="flex flex-wrap -mx-8">
             <div className="w-full px-8 lg:w-1/2">
                 <div className="pb-12 mb-12 border-b lg:mb-0 lg:pb-0 lg:border-b-0">

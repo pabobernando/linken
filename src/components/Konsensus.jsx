@@ -4,7 +4,7 @@ import Blockchain from '../img/ilustrasi3.png'
 function Konsensus() {
   return (
     <div>
-        <div className="relative p-4 bg-black dark:bg-gray-800">
+        <div className="relative p-4 bg-black">
     <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
         <div className="relative mt-10 -mx-4 md:-mx-12 lg:mt-0 lg:col-start-2">
             <img src={Blockchain} alt="illustration" className="relative w-auto mx-auto rounded shadow-lg"/>
