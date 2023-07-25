@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import useAddress from '../store/address'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import Linken from '../img/linken.png'
 
 function Navbar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { address, connectMetamask } = useAddress();
 
-  useEffect(() => {
-    // Cek apakah pengguna sudah login saat komponen dimuat
-    if (!address) {
-      navigate('/'); // Jika belum login, arahkan ke halaman beranda atau halaman login
-    }
-  }, [address, navigate]);
+  // useEffect(() => {
+  //   // Cek apakah pengguna sudah login saat komponen dimuat
+  //   if (!address) {
+  //     navigate('/'); // Jika belum login, arahkan ke halaman beranda atau halaman login
+  //   }
+  // }, [address, navigate]);
 
   function toggleMenu() {
     setIsOpen(!isOpen);
@@ -26,7 +29,9 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="text-white font-bold">linkenblock.tech</span>
+            <span className="text-white font-bold max-w-xs">
+                <img src={Linken} className='w-24' alt="Linken Logo" />
+              </span>
             </div>
           </div>
           <div className="hidden md:block">
@@ -41,9 +46,14 @@ function Navbar() {
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
-          <button type="button" onClick={toggleMenu} className="bg-cyan-500 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-  -
+          <button
+  type="button"
+  onClick={toggleMenu}
+  className="bg-black inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+>
+<FontAwesomeIcon icon={faBars} />
 </button>
+
           </div>
         </div>
       </div>
@@ -54,7 +64,7 @@ function Navbar() {
             <Link to="/berita"><a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Berita</a></Link>
             <Link to="/diskusi"><a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Diskusi</a></Link>
             <Link to="/team"><a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a></Link>
-            <button onClick={connectMetamask} className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button onClick={connectMetamask} className="bg-cyan-500 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded">
               {address ? null : 'Login Metamask'}
               <span>{address}</span>
             </button>

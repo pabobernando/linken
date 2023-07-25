@@ -1,54 +1,54 @@
 import React from 'react';
 import Footer from '../components/Footer';
 import Logo from '../img/linken.png';
+import Robot from '../img/robot.png';
 import { Link } from 'react-router-dom';
-import Team from '../components/Team'
+import Team from '../components/Team';
 import Powered from '../components/Powered';
-import SmartContract from '../components/SmartContract';
-import Konsensus from '../components/Konsensus';
-import Kriptografi from '../components/Kriptografi';
-import JenisBlockchain from '../components/JenisBlockchain';
-import BChain from '../components/BChain';
-import StrukturBlockchain from '../components/StrukturBlockchain';
+import Spesial from '../components/Spesial';
+import BoxEdukasi from '../components/BoxEdukasi';
 
 function Home() {
-  const click = () => {
-    console.log("kepencet")
-  }
-
   return (
-    <div>
-      <div className="relative z-20 h-full bg-black dark:bg-black flex items-center">
-  <div className="container grid grid-cols-1 place-items-center px-6 mx-auto mt-11">
-    <div className="max-w-xs m-auto md:max-w-6xl animate-pulse">
-      <img src={Logo} alt="Logo" />
-    </div>
-    <h2 className="w-full py-8 mx-auto text-xl font-light text-center text-gray-400 dark:text-white">
-      Jadilah bagian dari perubahan positif dengan bergabung bersama Linken, yang mendorong inovasi dan pengembangan teknologi yang
-      berkelanjutan dan menjadi pelaku utama dalam transformasi digital di era blockchain. Dengan bergabung bersama Linken, Anda akan memiliki kesempatan untuk mempelajari, mengembangkan, dan menerapkan teknologi blockchain yang revolusioner ini. Bersama-sama, kita dapat menciptakan solusi yang aman, transparan, dan efisien untuk berbagai sektor, mulai dari keuangan hingga logistik, dari perawatan kesehatan hingga pendidikan. Mari bergabung sekarang dan menjadi bagian dari gerakan blockchain yang mengubah dunia menuju masa depan yang lebih baik.
-    </h2>
-    <div className="flex items-center justify-center mt-4">
-      <Link to="/materi">
-        <a className="px-4 py-2 mr-4 text-white uppercase rounded bg-cyan-500  border-2 border-transparent text-md hover:bg-cyan-400">
-          Mulai
-        </a>
-      </Link>
-      <Link to="/dokumentasi">
-      <a className="px-4 py-2 text-white-800 uppercase bg-transparent rounded border-2 border-cyan-500 dark:text-white hover:bg-cyan-500 hover:text-white text-md text-white">
-        Dokumentasi
-      </a>
-      </Link>
-    </div>
-    <Powered />
-<BChain />
-<JenisBlockchain />
-<Kriptografi />
-<SmartContract />
-<StrukturBlockchain />
-<Konsensus />
-<Team />
-  </div>
-</div>
+    <div className='bg-black'>
+      <div className="relative z-20 flex flex-col items-center overflow-hidden bg-black">
+        <div className="container flex flex-col px-6 py-16 mx-auto sm:flex-row sm:justify-between sm:items-center sm:px-10">
+          <div className="flex flex-col text-center sm:text-left sm:w-2/5">
+            <span className="w-20 h-2 mb-12 bg-cyan-500"></span>
+            <h1 className="flex flex-col text-6xl font-black leading-none text-white uppercase font-bebas-neue sm:text-8xl">
+              Melangkah Maju Era Revolusi
+              <span className="text-5xl sm:text-7xl text-cyan-500">
+                Digital
+              </span>
+            </h1>
+            <p className="text-sm text-gray-500 sm:text-base">
+              keamanan dan privasi telah menjadi aspek krusial dalam menjaga integritas. Dengan bangga kami persembahkan Linken, sebuah platform edukasi Blockchain, yang berkomitmen penuh untuk menjadikan
+               keamanan dan privasi Anda sebagai prioritas utama.
+               Yang membuat Linken begitu istimewa adalah, selain menjadi solusi andal untuk keamanan dan privasi, Linken juga merupakan proyek opensource yang terbuka bagi semua orang. Artinya, siapa saja yang tertarik dan bersemangat dalam dunia teknologi dapat berkontribusi untuk meningkatkan kualitas dan keamanan platform ini
+            </p>
+            <div class="flex mt-8">
+               <Link to='/materi'> <a href="#" className="px-4 py-2 mr-4 text-white uppercase bg-cyan-500 border-2 border-transparent rounded-lg text-md hover:bg-cyan-400">
+                    Mulai Belajar
+                </a>
+                </Link>
+                <Link to='/dokumentasi'><a href="#" className="px-4 py-2 text-white uppercase bg-transparent border-2 border-cyan-500 rounded-lg hover:bg-cyan-500 text-md">
+                    Dokumentasi
+                </a>
+                </Link>
+            </div>
+          </div>
+          <div className="relative mt-8 sm:mt-0 sm:w-3/5 animate-pulse">
+          <img
+  src={Robot}
+  className="w-full"
+  alt="Robot"
+/>
+          </div>
+        </div>
+      </div>
+      < Spesial />
+
+      <Powered />
       <Footer />
     </div>
   );

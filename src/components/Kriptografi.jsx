@@ -3,7 +3,6 @@ import Blockchain from '../img/blockchain.jpeg'
 import Kriptografi2 from '../img/kriptografi2.jpg'
 import Kriptografi1 from '../img/kriptografi1.jpg'
 import Kriptografi3 from '../img/robot.png'
-import Kriptografi4 from '../img/robot2.png'
 
 function Kriptografi() {
   return (

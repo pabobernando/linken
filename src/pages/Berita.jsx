@@ -34,7 +34,7 @@ function Berita() {
 <div className="w-full p-12 bg-black">
 <div className="flex items-center justify-between mb-12 header ">
   <p className="mb-4 text-4xl font-bold text-white flex items-center">
-    Berita Terkait Blockchain
+    Berita
   </p>
   <Link to="/addBerita">
   <button className="border border-cyan-500 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">

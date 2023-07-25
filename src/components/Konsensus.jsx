@@ -5,7 +5,7 @@ function Konsensus() {
   return (
     <div>
         <div className="relative p-4 bg-black">
-    <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
+    <div className="container mx-auto lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
         <div className="relative mt-10 -mx-4 md:-mx-12 lg:mt-0 lg:col-start-2">
             <img src={Blockchain} alt="illustration" className="relative w-auto mx-auto rounded shadow-lg"/>
         </div>
@@ -29,10 +29,10 @@ function Konsensus() {
                         </div>
                         <div className="ml-4">
                             <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
-                            Proof of Work ( PoW )
+                            PoW 
                             </h5>
                             <p className="mt-2 text-base leading-6 text-gray-400 dark:text-gray-300">
-                                deskripsi
+                            POW adalah singkatan dari "Proof of Work" (Bukti Kerja). Ini adalah salah satu mekanisme konsensus yang paling terkenal dan umum digunakan dalam teknologi blockchain, terutama dikenal sebagai metode yang digunakan dalam jaringan Bitcoin.
                             </p>
                         </div>
                     </div>
@@ -49,10 +49,10 @@ function Konsensus() {
                         </div>
                         <div className="ml-4">
                             <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
-                                Proof of Stake ( PoS )
+                               PoS 
                             </h5>
                             <p className="mt-2 text-base leading-6 text-gray-400 dark:text-gray-300">
-                                Deskripsi
+                            POS adalah singkatan dari "Proof of Stake" (Bukti Kepemilikan). Ini adalah salah satu mekanisme konsensus yang digunakan dalam teknologi blockchain. Berbeda dengan Proof of Work (POW), di mana penambang bersaing untuk menyelesaikan tugas komputasi yang berat, Proof of Stake mengandalkan konsep kepemilikan koin kripto sebagai dasar pemilihan blok dan validasi transaksi.
                             </p>
                         </div>
                     </div>
@@ -69,10 +69,10 @@ function Konsensus() {
                         </div>
                         <div className="ml-4">
                             <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
-                            Delegated Proof of Stake ( DPoS )
+                             DPoS 
                             </h5>
                             <p className="mt-2 text-base leading-6 text-gray-400 dark:text-gray-300">
-                            Deskripsi
+                            DPOS adalah singkatan dari "Delegated Proof of Stake" (Bukti Kepemilikan yang Didelegasikan). DPOS adalah salah satu variasi dari mekanisme konsensus Proof of Stake (POS) yang digunakan dalam teknologi blockchain.
                             </p>
                         </div>
                     </div>
@@ -89,10 +89,10 @@ function Konsensus() {
                         </div>
                         <div className="ml-4">
                             <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
-                            Proof of Authority ( PoA )
+                             PoA 
                             </h5>
                             <p className="mt-2 text-base leading-6 text-gray-400 dark:text-gray-300">
-                            Deskripsi
+                            POA adalah singkatan dari "Proof of Authority" (Bukti Otoritas). Ini adalah jenis mekanisme konsensus lain yang digunakan dalam teknologi blockchain. POA dirancang untuk memberikan tingkat keamanan yang tinggi dan efisiensi transaksi yang baik, terutama cocok untuk jaringan blockchain swasta atau berizin yang dijalankan oleh pihak-pihak yang telah ditentukan.
                             </p>
                         </div>
                     </div>
@@ -109,10 +109,10 @@ function Konsensus() {
                         </div>
                         <div className="ml-4">
                             <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
-                            Practical Byzantine Fault Tolerance ( PBFT )
+                            PBFT 
                             </h5>
                             <p className="mt-2 text-base leading-6 text-gray-400 dark:text-gray-300">
-                            Deskripsi
+                            PBFT adalah singkatan dari "Practical Byzantine Fault Tolerance" (Toleransi Kesalahan Byzantine yang Praktis). PBFT adalah salah satu mekanisme konsensus yang digunakan dalam teknologi blockchain, terutama di jaringan yang memerlukan keamanan tinggi dan ketahanan terhadap serangan oleh pihak yang tidak dapat dipercaya (Byzantine Fault).
                             </p>
                         </div>
                     </div>
