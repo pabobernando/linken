@@ -29,6 +29,7 @@ const Diskusi = () => {
       setComments(fetchedComments);
     } catch (error) {
       console.error(error);
+      alert("Silahkan ganti jaringan GOERLI");
     }
   };
 

@@ -42,41 +42,31 @@ const useAddress = create((set) => ({
         // Update the signedData state
         set({ signedData: sign });
 
-        // Call the postData function
-        useAddress.getState().postData();
+        // Switch to Goerli network
+        await ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainId: '0x5', // Goerli Chain ID
+              chainName: 'Goerli Test Network',
+              rpcUrls: ['https://goerli.blockpi.network/v1/rpc/public'],
+              nativeCurrency: {
+                name: 'Ether',
+                symbol: 'ETH',
+                decimals: 18,
+              },
+              blockExplorerUrls: ['https://goerli.etherscan.io'],
+            },
+          ],
+        });
+
+        console.log("Switched to Goerli network");
+
       } catch (error) {
         console.log("Error connecting to Metamask:", error);
       }
     } else {
       console.log("Metamask not detected.");
-    }
-  },
-  postData: async () => {
-    try {
-
-      const { address, user, signedData } = useAddress.getState();
-
-      if (user === '') {
-        console.log('User does not exist. Skipping POST request.');
-        return;
-      }
-
-      const response = await fetch('http://localhost:3009/accounts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ address, user, signedData }), // Include signedData in the request body
-      });
-
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log('Success:', responseData);
-      } else {
-        console.error('Error:', response.status);
-      }
-    } catch (error) {
-      console.error('Error:', error);
     }
   },
 }));
