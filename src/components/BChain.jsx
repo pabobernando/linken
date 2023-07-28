@@ -24,10 +24,10 @@ function BChain() {
 </div>
                         </div>
                         <div className="ml-4">
-                            <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
+                            <h5 className="text-lg font-bold leading-6 text-white ">
                                 Keamanan
                             </h5>
-                            <p className="mt-2 text-base leading-6 text-gray-400 dark:text-gray-300">
+                            <p className="mt-2 text-base leading-6 text-gray-400 ">
                             Blockchain menggunakan kriptografi yang kuat untuk melindungi transaksi dan data yang dicatat dalam blok. Setiap blok terhubung dengan blok sebelumnya melalui tanda tangan kriptografi, sehingga setiap perubahan atau manipulasi pada blok sebelumnya akan dengan cepat terdeteksi, menjadikannya sulit untuk melakukan pemalsuan atau penipuan.
                             </p>
                         </div>
@@ -41,10 +41,10 @@ function BChain() {
 </div>
                         </div>
                         <div className="ml-4">
-                            <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
+                            <h5 className="text-lg font-bold leading-6 text-white ">
                             Terdesentralisasi
                             </h5>
-                            <p className="mt-2 text-base leading-6 text-gray-500 dark:text-gray-300">
+                            <p className="mt-2 text-base leading-6 text-gray-400 ">
                             Salah satu keunggulan utama blockchain adalah tidak adanya otoritas pusat. Sebagai gantinya, data dan transaksi disimpan di berbagai node yang tersebar di seluruh jaringan. Hal ini mengurangi risiko kegagalan sistem tunggal dan menjadikan sistem lebih tahan terhadap serangan dan gangguan. 
                             </p>
                         </div>
@@ -58,10 +58,10 @@ function BChain() {
                             </div>
                         </div>
                         <div className="ml-4">
-                            <h5 className="text-lg font-bold leading-6 text-white dark:text-white">
+                            <h5 className="text-lg font-bold leading-6 text-white ">
                             Transparansi
                             </h5>
-                            <p className="mt-2 text-base leading-6 text-gray-400 dark:text-gray-300">
+                            <p className="mt-2 text-base leading-6 text-gray-400 ">
                             Setiap transaksi yang dicatat dalam blockchain dapat dilihat oleh semua pihak yang berpartisipasi dalam jaringan. Hal ini menciptakan tingkat transparansi yang tinggi, yang dapat membantu mengatasi masalah kepercayaan dan memverifikasi asal-usul data dengan mudah.
                             </p>
                         </div>

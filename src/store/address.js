@@ -47,15 +47,15 @@ const useAddress = create((set) => ({
           method: 'wallet_addEthereumChain',
           params: [
             {
-              chainId: '0x5', // Goerli Chain ID
-              chainName: 'Goerli Test Network',
-              rpcUrls: ['https://goerli.blockpi.network/v1/rpc/public'],
+              chainId: '0x2329', // Goerli Chain ID
+              chainName: 'Evmos',
+              rpcUrls: ['https://jsonrpc-evmos-ia.cosmosia.notional.ventures'],
               nativeCurrency: {
-                name: 'Ether',
-                symbol: 'ETH',
+                name: 'Evmos',
+                symbol: 'EVMOS',
                 decimals: 18,
               },
-              blockExplorerUrls: ['https://goerli.etherscan.io'],
+              blockExplorerUrls: ['https://escan.live/'],
             },
           ],
         });

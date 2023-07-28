@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import Kewr from '../img/kewr.png'
 import Uwong from '../img/pabober.jpg'
-import Binance from '../img/binance.jpeg'
+import Blackrock from '../img/blackrock.jpg'
+import Game from '../img/game.jpg'
 import { Link } from 'react-router-dom'
 import useAddress from '../store/address';
 
@@ -51,18 +52,18 @@ function Berita() {
     >
       <Link to="/berita1">
       <a className="block w-full h-full">
-        <img alt="blog photo" src={Binance} className="object-cover w-full max-h-40" />
+        <img alt="blog photo" src={Blackrock} className="object-cover w-full max-h-40" />
         <div className="w-full p-4 bg-black border border-yellow-500">
-          <p className="font-bold text-yellow-500 text-md">Binance Menghadapi Penyelidikan Terkait Sigma Chain yang Berbasis di Swiss dalam Laporan Terbaru SEC</p>
+          <p className="font-bold text-yellow-500 text-md">CEO BlackRock: Bitcoin Bakal Ubah Sistem Keuangan</p>
           <p className="font-light text-gray-400 dark:text-gray-300 text-md">
-          Dalam laporan pengadilan terbaru oleh US Securities and Exchange Commission (SEC) terhadap Binance, perusahaan perdagangan aset kripto yang terdaftar di Swiss, Sigma Chain menjadi sorotan.</p>
+          Larry Fink, CEO BlackRock, menyatakan kripto khususnya Bitcoin akan bisa merevolusi sistem keuangan dalam interviewnya pada Fox Business<span className='text-blue-500'> Lebih Lanjut...</span></p>
           <div className="flex items-center mt-4">
             <a className="relative block">
               <img alt="profil" src={Uwong} className="mx-auto object-cover rounded-full h-10 w-10" />
             </a>
             <div className="flex flex-col justify-between ml-4 text-sm">
               <p className="text-white">{user}</p>
-              <p className="text-gray-400 dark:text-gray-300">22-06-2023 - 17:00</p>
+              <p className="text-gray-400 dark:text-gray-300">26-07-2023 - 17:00</p>
             </div>
           </div>
         </div>
@@ -73,13 +74,13 @@ function Berita() {
       className={`m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80 ${isClicked ? 'w-full' : ''}`}
       onClick={handleClick}
     >
-      <Link to="/berita1">
+      <Link to="/berita2">
       <a className="block w-full h-full">
-        <img alt="blog photo" src={Binance} className="object-cover w-full max-h-40" />
+        <img alt="blog photo" src={Game} className="object-cover w-full max-h-40" />
         <div className="w-full p-4 bg-black border border-yellow-500">
-          <p className="font-bold text-yellow-500 text-md">Binance Menghadapi Penyelidikan Terkait Sigma Chain yang Berbasis di Swiss dalam Laporan Terbaru SEC</p>
+          <p className="font-bold text-yellow-500 text-md">Bagaimana Teknologi Blockchain Mengubah Dunia Gaming</p>
           <p className="font-light text-gray-400 dark:text-gray-300 text-md">
-          Dalam laporan pengadilan terbaru oleh US Securities and Exchange Commission (SEC) terhadap Binance, perusahaan perdagangan aset kripto yang terdaftar di Swiss, Sigma Chain menjadi sorotan.</p>
+          Transformasi luar biasa dalam banyak industri terjadi berkat teknologi blockchain. Salah satu sektor yang mengalami revolusi adalah industri gaming, yang berhasil menarik minat sekitar 3,09 miliar pemain video aktif di seluruh dunia.<span className='text-blue-500'>Lebih Lanjut...</span></p>
           <div className="flex items-center mt-4">
             <a className="relative block">
               <img alt="profil" src={Uwong} className="mx-auto object-cover rounded-full h-10 w-10" />

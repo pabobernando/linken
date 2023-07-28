@@ -22,19 +22,15 @@ function Home() {
               </span>
             </h1>
             <p className="text-sm text-gray-500 sm:text-base">
-              keamanan dan privasi telah menjadi aspek krusial dalam menjaga integritas. Dengan bangga kami persembahkan Linken, sebuah platform edukasi Blockchain, yang berkomitmen penuh untuk menjadikan
-               keamanan dan privasi Anda sebagai prioritas utama.
-               Yang membuat Linken begitu istimewa adalah, selain menjadi solusi andal untuk keamanan dan privasi, Linken juga merupakan proyek opensource yang terbuka bagi semua orang. Artinya, siapa saja yang tertarik dan bersemangat dalam dunia teknologi dapat berkontribusi untuk meningkatkan kualitas dan keamanan platform ini
-            </p>
+              keamanan dan privasi telah menjadi aspek krusial dalam menjaga integritas. Mulai belajar technology Blockchain dari berbagai level yang disesuaikan dengan kebutuhan kamu!</p>
             <div class="flex mt-8">
-               <Link to='/materi'> <a href="#" className="px-4 py-2 mr-4 text-white uppercase bg-cyan-500 border-2 border-transparent rounded-lg text-md hover:bg-cyan-400">
+               <Link to='/materi' className='mt-2'> <a href="#" className="px-4 py-2 mr-4 text-white uppercase bg-cyan-500 border-2 border-transparent rounded-lg text-md hover:bg-cyan-400">
                     Mulai Belajar
                 </a>
                 </Link>
-                <Link to='/dokumentasi'><a href="#" className="px-4 py-2 text-white uppercase bg-transparent border-2 border-cyan-500 rounded-lg hover:bg-cyan-500 text-md">
+                <a href="https://medium.com/@pabobernando69" className="px-4 py-2 text-white uppercase bg-transparent border-2 border-cyan-500 rounded-lg hover:bg-cyan-500 text-md">
                     Dokumentasi
                 </a>
-                </Link>
             </div>
           </div>
           <div className="relative mt-8 sm:mt-0 sm:w-3/5 animate-pulse">
@@ -47,7 +43,6 @@ function Home() {
         </div>
       </div>
       < Spesial />
-
       <Powered />
       <Footer />
     </div>
