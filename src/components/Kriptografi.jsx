@@ -2,7 +2,8 @@ import React from 'react'
 import Blockchain from '../img/blockchain.jpeg'
 import Kriptografi2 from '../img/kriptografi2.jpg'
 import Kriptografi1 from '../img/kriptografi1.jpg'
-import Kriptografi3 from '../img/robot.png'
+import Kriptografi3 from '../img/kriptografi3.jpg'
+import Kriptografi4 from '../img/kriptografi4.jpg'
 
 function Kriptografi() {
   return (
@@ -75,12 +76,12 @@ function Kriptografi() {
             <div className="relative mt-10 lg:-mx-4 relative-20 lg:mt-0 lg:col-start-1">
                 <div className="relative space-y-4">
                     <div className="flex items-end justify-center space-x-4 lg:justify-start">
-                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Kriptografi3} alt="1"/>
+                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Kriptografi1} alt="1"/>
                         <img className="w-40 rounded-lg shadow-lg md:w-64" width="260" src={Kriptografi2} alt="2"/>
                     </div>
                     <div className="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
-                        <img className="w-24 rounded-lg shadow-lg md:w-40" width="170" src={Blockchain} alt="3"/>
-                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Kriptografi1} alt="4"/>
+                        <img className="w-24 rounded-lg shadow-lg md:w-40" width="170" src={Kriptografi3} alt="3"/>
+                        <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src={Kriptografi4} alt="4"/>
                     </div>
                 </div>
             </div>

@@ -38,11 +38,11 @@ function Berita() {
     Berita
   </p>
   <Link to="/addBerita">
-  <button className="border border-cyan-500 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">
+  {/* <button className="border border-cyan-500 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ margin: '0', padding: '0' }}>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
   </svg>
-  </button>
+  </button> */}
   </Link>
 </div>
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
@@ -99,13 +99,14 @@ function Berita() {
       className={`m-auto overflow-hidden rounded-lg shadow-lg cursor-pointer h-90 w-60 md:w-80 ${isClicked ? 'w-full' : ''}`}
       onClick={handleClick}
     >
-      <Link to="/berita1">
+      <Link to="/berita3">
       <a className="block w-full h-full">
       {imageURL && <img alt="blog photo" src={imageURL} className="object-cover w-full max-h-40" />}
         <div className="w-full p-4 bg-black border border-yellow-500">
-          <p className="font-bold text-yellow-500 text-md">Binance Menghadapi Penyelidikan Terkait Sigma Chain yang Berbasis di Swiss dalam Laporan Terbaru SEC</p>
+          <p className="font-bold text-yellow-500 text-md">Panduan Regulasi untuk Mata Uang Kripto di Indonesia</p>
           <p className="font-light text-gray-400 dark:text-gray-300 text-md">
-          Dalam laporan pengadilan terbaru oleh US Securities and Exchange Commission (SEC) terhadap Binance, perusahaan perdagangan aset kripto yang terdaftar di Swiss, Sigma Chain menjadi sorotan.</p>
+          Apakah Mata Uang Kripto Legal di Indonesia?
+Mata uang Indonesia ditentukan oleh hukum, menurut Pasal 23B konstitusi negara, dan undang-undang mata uang tahun 2011 mengamanatkan bahwa hampir semua transaksi keuangan di Indonesia dilakukan dalam Rupiah</p>
           <div className="flex items-center mt-4">
             <a className="relative block">
               <img alt="profil" src={Uwong} className="mx-auto object-cover rounded-full h-10 w-10" />
