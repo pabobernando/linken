@@ -21,10 +21,8 @@ function Navbar() {
     setIsOpen(!isOpen);
   }
 
-  
-
   return (
-    <nav className="bg-black">
+    <nav className="bg-gray-950">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -49,7 +47,7 @@ function Navbar() {
           <button
   type="button"
   onClick={toggleMenu}
-  className="bg-black inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+  className="bg-gray-950 inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
 >
 <FontAwesomeIcon icon={faBars} />
 </button>

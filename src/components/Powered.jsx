@@ -5,7 +5,7 @@ import Yosemite from '../img/yosemite.png'
 
 function Powered() {
   return (
-    <div className='bg-black'>
+    <div className='bg-gray-950'>
     <div className='grid grid-cols-1  mt-10 pr-20 pl-20 w-full'>
     <h1 className='text-2xl sm:text-sm text-center text-white font-medium'>Powered</h1>
 </div>

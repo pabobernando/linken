@@ -1,14 +1,15 @@
 import React from 'react'
-import Blockchain from '../img/ilustrasi3.png'
-import Code from '../img/code.png'
+import Blockchain from '../img/konsensus.png'
+import Atom from '../img/atom.png'
+
 
 function Konsensus() {
   return (
     <div>
-        <div className="relative p-4 bg-black">
+        <div className="relative p-4 bg-gray-950">
     <div className="container mx-auto lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
         <div className="relative mt-10 -mx-4 md:-mx-12 lg:mt-0 lg:col-start-2">
-            <img src={Blockchain} alt="illustration" className="relative w-auto mx-auto rounded shadow-lg"/>
+            <img src={Blockchain} alt="illustration" className="relative w-1/2 mx-auto rounded shadow-lg"/>
         </div>
         <div className="lg:col-start-1 md:pr-20">
             <h4 className="text-2xl font-extrabold leading-8 tracking-tight text-white dark:text-white sm:leading-9">
@@ -21,8 +22,8 @@ function Konsensus() {
                 <li>
                     <div className="flex">
                         <div className="flex-shrink-0">
-                            <div className="flex items-center justify-center w-12 h-12 bg-black border border-cyan-500 text-white">
-                                <img src={Code} />
+                            <div className="flex items-center justify-center w-12 h-12 bg-black text-white">
+                                <img src={Atom} />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -38,8 +39,8 @@ function Konsensus() {
                 <li className="mt-10">
                     <div className="flex">
                         <div className="flex-shrink-0">
-                            <div className="flex items-center justify-center w-12 h-12 bg-black border border-cyan-500 text-white rounded-md">
-                            <img src={Code} />
+                            <div className="flex items-center justify-center w-12 h-12 bg-black  text-white rounded-md">
+                            <img src={Atom} />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -55,8 +56,8 @@ function Konsensus() {
                 <li className="mt-10">
                     <div className="flex">
                         <div className="flex-shrink-0">
-                            <div className="flex items-center justify-center w-12 h-12 bg-black border border-cyan-500 text-white rounded-md">
-                            <img src={Code} />
+                            <div className="flex items-center justify-center w-12 h-12 bg-black  text-white rounded-md">
+                            <img src={Atom} />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -72,8 +73,8 @@ function Konsensus() {
                 <li className="mt-10">
                     <div className="flex">
                         <div className="flex-shrink-0">
-                            <div className="flex items-center justify-center w-12 h-12 bg-black border border-cyan-500 text-white rounded-md">
-                            <img src={Code} />
+                            <div className="flex items-center justify-center w-12 h-12 bg-black  text-white rounded-md">
+                            <img src={Atom} />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -89,8 +90,8 @@ function Konsensus() {
                 <li className="mt-10">
                     <div className="flex">
                         <div className="flex-shrink-0">
-                            <div className="flex items-center justify-center w-12 h-12 bg-black border border-cyan-500 text-white rounded-md">
-                            <img src={Code} />
+                            <div className="flex items-center justify-center w-12 h-12 bg-black text-white rounded-md">
+                            <img src={Atom} />
                             </div>
                         </div>
                         <div className="ml-4">

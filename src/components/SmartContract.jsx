@@ -1,11 +1,11 @@
 import React from 'react'
-import Blockchain from '../img/ilustrasi2.png'
-import Eth from '../img/eth.png'
+import Blockchain from '../img/smartcontract.png'
+import Code from '../img/iconcode.png'
 
 function SmartContract() {
   return (
     <>
-    <div className="relative p-4 bg-black">
+    <div className="relative p-4 bg-gray-950">
     <div className=" container mx-auto lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
         
         <div className="lg:col-start-1 md:pr-20">
@@ -21,7 +21,7 @@ function SmartContract() {
                     <div className="flex">
                         <div className="flex-shrink-0">
                             <div className="flex items-center justify-center w-12 h-12">
-                                <img src={Eth} alt="" />
+                                <img src={Code} alt="" />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -38,7 +38,7 @@ function SmartContract() {
                     <div className="flex">
                         <div className="flex-shrink-0">
                             <div className="flex items-center justify-center w-12 h-12 ">
-                                <img src={Eth} />
+                                <img src={Code} />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -55,7 +55,7 @@ function SmartContract() {
                     <div className="flex">
                         <div className="flex-shrink-0">
                             <div className="flex items-center justify-center w-12 h-12 ">
-                                <img src={Eth} />
+                                <img src={Code} />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -72,7 +72,7 @@ function SmartContract() {
                     <div className="flex">
                         <div className="flex-shrink-0">
                             <div className="flex items-center justify-center w-12 h-12">
-                                <img src={Eth} />
+                                <img src={Code} />
                             </div>
                         </div>
                         <div className="ml-4">
@@ -89,7 +89,7 @@ function SmartContract() {
                     <div className="flex">
                         <div className="flex-shrink-0">
                             <div className="flex items-center justify-center w-12 h-12">
-                                <img src={Eth} />
+                                <img src={Code} />
                             </div>
                         </div>
                         <div className="ml-4">

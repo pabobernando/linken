@@ -7,7 +7,7 @@ function Footer() {
 
   return (
     <div>   
-<footer className="bg-black w-full ">
+<footer className="bg-gray-950 w-full ">
     <div className="max-w-screen mx-auto">
         <ul className="flex flex-wrap justify-between max-w-screen-md mx-auto text-lg font-light">
             <li className="my-2">

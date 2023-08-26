@@ -11,8 +11,8 @@ function Materi() {
   return (
     <div>
      
-<div className="max-w-screen p-8 mx-auto bg-black">
-    <h2 className="mb-12 text-3xl font-extrabold leading-9 text-white border-b-2 border-gray-100">
+<div className="max-w-screen p-8 mx-auto bg-gray-950">
+    <h2 className="mb-12 text-3xl font-extrabold leading-9 text-gray-100 border-b-2 border-gray-100">
         Edukasi
     </h2>
     <S1 />

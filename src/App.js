@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Materi from './pages/Materi';
 import Navbar from './components/Navbar';
 import Berita from './pages/Berita';
-import Diskusi from './pages/Diskusi';
+import Diskusi from './pages/Discuss';
 import Berita1 from './pages/berita/Berita1';
 import Berita2 from './pages/berita/Berita2';
 import Berita3 from './pages/berita/Berita3';

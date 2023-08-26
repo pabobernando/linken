@@ -9,7 +9,7 @@ const contractAddress = "0xe572c8de349d0bdaa59b577286806fb6d88fd001";
 const contractABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"comments","outputs":[{"internalType":"address","name":"author","type":"address"},{"internalType":"string","name":"content","type":"string"},{"internalType":"uint256","name":"timestamp","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_content","type":"string"}],"name":"createComment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"}],"name":"deleteComment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"}],"name":"getComment","outputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"string","name":"","type":"string"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getCommentCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_commentIndex","type":"uint256"},{"internalType":"string","name":"_newContent","type":"string"}],"name":"updateComment","outputs":[],"stateMutability":"nonpayable","type":"function"}]; // Ganti dengan ABI kontrak Anda
 const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
 
-const Diskusi = () => {
+const Discuss = () => {
   const [comments, setComments] = useState([]);
   const [newContent, setNewContent] = useState("");
   const [editIndex, setEditIndex] = useState(-1);
@@ -54,7 +54,7 @@ const Diskusi = () => {
       event.target.reset();
       toast.success(`Comment sent successfully!\nTransaction Hash: ${receipt.transactionHash}`, {
         position: "top-right",
-        autoClose: 5000, // Auto-close the notification after 5 seconds
+        autoClose: 10000, // Auto-close the notification after 10 seconds
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
@@ -88,7 +88,7 @@ const Diskusi = () => {
           loadComments();
           toast.success("Comment edited successfully!", {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 10000,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
@@ -142,12 +142,12 @@ const Diskusi = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-black">
+    <div className="h-screen flex flex-col bg-gray-950">
     <div className="flex-grow overflow-y-auto">
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Discussion Contract</h1>
         {comments.map((comment, index) => (
-          <div key={index} className="bg-black border border-cyan-500 p-4 rounded-md mb-4 text-white">
+          <div key={index} className="bg-gray-950 border border-cyan-500 p-4 rounded-md mb-4 text-white">
             <p className="font-bold">Author: {comment[0]}</p>
             {editIndex === index ? (
               <input
@@ -226,4 +226,4 @@ const Diskusi = () => {
   );
 };
 
-export default Diskusi;
+export default Discuss;

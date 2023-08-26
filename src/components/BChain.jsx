@@ -1,18 +1,18 @@
 import React from 'react'
-import Blockchain from '../img/blockchain.jpeg'
+import Blockchain from '../img/robot1.png'
 import Code from '../img/code.png'
 
 function BChain() {
   return (
     <>
-<div className="relative p-4 bg-black">
+<div className="relative p-4 bg-gray-950">
     <div className="container mx-auto lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
         <div className="lg:col-start-2 md:pl-20">
-            <h4 className="text-2xl text-white font-extrabold leading-8 tracking-tight  dark:text-white sm:leading-9">
+            <h4 className="text-2xl text-white font-extrabold leading-8 tracking-tight  sm:leading-9">
                 Apa itu BLOCKCHAIN ?
             </h4>
             <h1 className='text-gray-400'>Blockchain adalah sebuah teknologi yang memungkinkan pengiriman, penyimpanan, dan verifikasi transaksi digital secara terdesentralisasi, aman, dan transparan</h1>
-            <h4 className="text-2xl text-white font-extrabold leading-8 tracking-tight  dark:text-white sm:leading-9">
+            <h4 className="text-2xl text-white font-extrabold leading-8 tracking-tight sm:leading-9">
                 Kenapa memilih BLOCKCHAIN ?
             </h4>
             <ul className="mt-5">
@@ -24,7 +24,7 @@ function BChain() {
 </div>
                         </div>
                         <div className="ml-4">
-                            <h5 className="text-lg font-bold leading-6 text-white ">
+                            <h5 className="text-lg font-bold leading-6 text-gray-100 ">
                                 Keamanan
                             </h5>
                             <p className="mt-2 text-base leading-6 text-gray-400 ">
